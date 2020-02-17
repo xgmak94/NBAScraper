@@ -114,19 +114,3 @@ def getPlayerStats(link):
         blk = float(allStats[25].text) #Blocks
         pts = float(allStats[28].text) #Points
         return age, gp, minutes, fg, threePt, ft, reb, ast, stl, blk, pts
-
-def main():
-    westStats, eastStats = teamStats()
-    westStats.to_csv("West Standings " + currDate.strftime("%b %d %Y") + ".csv")
-    eastStats.to_csv("East Standings " + currDate.strftime("%b %d %Y") + ".csv")
-
-    rosterLinks, teamNames = getRosterLinks()
-    for i in range(0, 30):
-        getTeamRoster(rosterLinks[i], teamNames[i])
-
-##    getPlayerStats("https://www.basketball-reference.com/players/v/vincega01.html") ## never played edge case
-##    x = getPlayerStats("https://www.basketball-reference.com/players/a/antetgi01.html")
-##    print(x)
-    
-if __name__ == "__main__":
-    main()
